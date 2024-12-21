@@ -1,3 +1,4 @@
+version: 2
 # This is an example .goreleaser.yml file with some sensible defaults.
 # Make sure to check the documentation at https://goreleaser.com
 before:
@@ -22,6 +23,13 @@ archives:
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else}}{{ .Arch }}{{ end }}
+brews:
+  - name: get-local-lambda
+    directory: Formula
+    repository:
+      owner: cuotos
+      name: homebrew-tap
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
 checksum:
   name_template: 'checksums.txt'
 snapshot:
