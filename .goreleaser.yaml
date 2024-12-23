@@ -24,7 +24,7 @@ archives:
       {{- else if eq .Arch "386" }}i386
       {{- else}}{{ .Arch }}{{ end }}
 brews:
-  - name: get-local-lambda
+  - name: "{{ .ProjectName }}"
     directory: Formula
     repository:
       owner: cuotos
